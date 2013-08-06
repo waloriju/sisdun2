@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Sisdun::Application.config.secret_key_base = 'a6c20ec09b2e49fdd03bc6afb538d6a319acdadac518fe6210507d60f5ca668bfc3dc3fb1aa985cfe1ef22fce0e305e4b91e9e803173dd4f37d4fe7267c51817'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Sisdun::Application.config.secret_key_base = secure_token
