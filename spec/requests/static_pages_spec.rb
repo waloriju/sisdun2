@@ -7,7 +7,7 @@ describe "Static pages" do
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_selector('h1', text: 'Bem-vindo ao SISDUN') }
+    it { should have_selector('h1', text: 'Welcome to the SISDUN') }
     it { should have_title(full_title('')) }
     it { should_not have_title '| Home' }
   end
@@ -33,9 +33,10 @@ describe "Static pages" do
     click_link "Help"
     expect(page).to have_title(full_title('Help'))
     click_link "Home"
-    #click_link "Sign up"
-    #expect(page).to have_title(full_title('Sign up'))
+    expect(page).to have_title(full_title(''))
+    click_link "Sign in"
+    expect(page).to have_title(full_title('Sign in'))
     click_link "sisdun"
-    expect(page).to have_selector 'h1', text: 'Bem-vindo ao SISDUN'
+    expect(page).to have_selector 'h1', text: 'Welcome to the SISDUN'
   end
 end
