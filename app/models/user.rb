@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_secure_password
-
   before_save { email.downcase! }
   before_create :create_remember_token
 
@@ -9,8 +7,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  has_secure_password
   validates :password, length: { in: 6..20 }
-  validates :password_confirmation, presence: true
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
