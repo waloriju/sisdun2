@@ -1,5 +1,5 @@
 Sisdun::Application.routes.draw do
-  get "customers/new"
+  resources :customers
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
