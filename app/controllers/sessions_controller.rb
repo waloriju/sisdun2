@@ -2,8 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     unless !signed_in?
-      flash[:error] = "You are already signed"
-      redirect_to root_url
+      redirect_to root_url, notice: "You are already signed"
     end
   end
 
