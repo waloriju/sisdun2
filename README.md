@@ -6,5 +6,4 @@
 
 * User, admin
 
-*
-
+* Customer

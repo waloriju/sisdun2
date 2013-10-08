@@ -1,0 +1,17 @@
+<div class="span3">
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Navigation</li>
+      <% if signed_in? %>              
+        <li><%= link_to "Customers", customers_path %></li>
+        <% if current_user.admin? %>
+          <li class="divider"></li>
+          <li class="nav-header">Administration</li>
+          <li><%= link_to "Users", users_path %></li>
+        <% end %>
+      <% else %>
+        <li><%= link_to "Sign in", "/signin" %></li>
+      <% end %>
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->
