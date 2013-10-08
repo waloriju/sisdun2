@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_filter :admin_user, only: [:destroy, :new, :create, :index]
 
   def index
-    @users = User.order(:name)
+    @users = User.all
+    @users = User.order(params[:sort]) if params[:sort]
   end
 
   def show
@@ -46,16 +47,6 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors,
           status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      #sign_in @user
-      redirect_to @user
-    else
-      render 'edit'
     end
   end
 

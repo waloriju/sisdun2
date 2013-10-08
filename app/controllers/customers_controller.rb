@@ -16,13 +16,18 @@ class CustomersController < ApplicationController
   def edit
   end
 
+  def search
+    index
+    render :index
+  end
+
   def create
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer,
-          notice: 'Customer was successfully created.' }
+        format.html { redirect_to @customer }
+          flash[:success] = "Customer #{@customer.full_name} was successfully created."
         format.json { render action: 'show', status: :created,
           location: @customer }
       else
@@ -30,6 +35,29 @@ class CustomersController < ApplicationController
         format.json { render json: @customer.errors,
           status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @customer.update(customer_params)
+        format.html { redirect_to customers_url }
+          flash[:success] = "Customer #{@customer.full_name} was successfully updated."
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @customer.errors,
+          status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @customer.destroy
+    respond_to do |format|
+      format.html { redirect_to customers_url }
+      flash[:success] = "Customer #{@customer.full_name} was successfully destroyed"
+      format.json { head :no_content }
     end
   end
 

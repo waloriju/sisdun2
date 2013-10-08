@@ -6,15 +6,16 @@ gem 'rails', '4.0.0'
 
 gem 'pry'
 gem 'pry-nav'
-gem 'twitter-bootstrap-rails'
 
 gem 'bcrypt-ruby', '~> 3.0.1'
 gem 'faker',  '1.1.2'
 
-gem 'will_paginate', '3.0.4'
-gem 'twitter-bootstrap-rails'
-
-gem 'maskedinput-rails'
+#gem 'will_paginate'
+#gem 'bootstrap-will_paginate'
+gem 'twitter-bootstrap-rails', '2.2.8'
+gem 'maskedinput-rails', '1.3.1.0'
+#gem 'kaminari'
+#gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'

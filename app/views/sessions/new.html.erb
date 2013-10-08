@@ -1,8 +1,9 @@
 <% provide(:title, "Sign in") %>
 <%= form_for(:session, url: sessions_path) do |f| %>
-<h1>Sign in</h1>
-  <fieldset>
-  <legend>Please Sign in</legend>    
+<div class="page-header">
+  <h1>Sign in</h1>
+</div>
+   <fieldset>
       <div class="control-group">
         <%= f.label :email, :class => 'control-label' %>
         <div class="controls">
