@@ -1,0 +1,33 @@
+<% provide(:title, 'Customers') %>
+
+<div class="page-header">
+  <h1>Customers</h1>
+</div>
+
+<%= link_to "new", new_customer_path, class: 'btn btn-primary' %>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>gender</th>
+          <th>date of birth</th>
+          <th>actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= link_to(customer.id, customer) %></td>
+          <td><%= customer.full_name %></td>
+          <td><%= customer.gender %></td>
+          <td><%= customer.birth_date %></td>
+          <td>
+              <%= link_to "show", customer, class: 'btn btn-mini' %>
+              <%= link_to "edit", edit_customer_path(customer), class: 'btn btn-mini' %>
+              <%= link_to "destroy", customer, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-mini btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

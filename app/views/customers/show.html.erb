@@ -1,0 +1,28 @@
+<% provide(:title, @customer.full_name) %>
+
+<div class="page-header">
+  <h1><%= @customer.full_name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Id:</strong></dt>
+  <dd><%= @customer.id %></dd>
+  <dt><strong>First name:</strong></dt>
+  <dd><%= @customer.first_name %></dd>
+  <dt><strong>Last name:</strong></dt>
+  <dd><%= @customer.last_name %></dd>
+  <dt><strong>Gender:</strong></dt>
+  <dd><%= @customer.gender %></dd>
+  <dt><strong>CPF:</strong></dt>
+  <dd><%= @customer.cpf %></dd>
+  <dt><strong>Date of Birth:</strong></dt>
+  <dd><%= @customer.birth_date %></dd>
+</dl>
+
+<div class="form-actions">
+    <%= link_to 'Back', customers_path, class: 'btn' %>
+    <%= link_to "edit", edit_customer_path(@customer), class: 'btn' %>
+    <%= link_to "destroy", @customer, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+</div>
+
+<h2> Continua com quadro de compras </h2>
