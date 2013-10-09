@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820075056) do
+ActiveRecord::Schema.define(version: 20131009043310) do
+
+  create_table "companies", force: true do |t|
+    t.string   "company_name", null: false
+    t.string   "trading_name", null: false
+    t.string   "cnpj"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "companies", ["cnpj"], name: "index_companies_on_cnpj", unique: true
 
   create_table "customers", force: true do |t|
     t.string   "first_name", null: false

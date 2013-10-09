@@ -1,4 +1,6 @@
 Sisdun::Application.routes.draw do
+  resources :companies
+
   resources :customers
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
