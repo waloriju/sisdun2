@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009043310) do
+ActiveRecord::Schema.define(version: 20131009084346) do
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
 
   create_table "companies", force: true do |t|
     t.string   "company_name", null: false
@@ -34,6 +43,16 @@ ActiveRecord::Schema.define(version: 20131009043310) do
   end
 
   add_index "customers", ["cpf"], name: "index_customers_on_cpf", unique: true
+
+  create_table "states", force: true do |t|
+    t.string   "abbreviation"
+    t.string   "name"
+    t.integer  "capital_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "states", ["capital_id"], name: "index_states_on_capital_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

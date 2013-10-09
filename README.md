@@ -7,3 +7,7 @@
 * User, admin
 
 * Customer
+
+* Company
+
+*
