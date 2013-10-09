@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :signed_in_user
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
@@ -28,7 +29,8 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
+        format.html { redirect_to @company } 
+        flash[:success] = "Company #{@company.company_name} was successfully created."
         format.json { render action: 'show', status: :created, location: @company }
       else
         format.html { render action: 'new' }
@@ -42,7 +44,8 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
+        format.html { redirect_to @company } 
+        flash[:success] = "Company #{@company.company_name} was successfully updated."
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,6 +60,7 @@ class CompaniesController < ApplicationController
     @company.destroy
     respond_to do |format|
       format.html { redirect_to companies_url }
+      flash[:success] = "Company #{@company.company_name} was successfully destroyed"
       format.json { head :no_content }
     end
   end

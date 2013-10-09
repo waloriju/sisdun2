@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, @company.company_name) %>
 
-<p>
-  <strong>Company name:</strong>
-  <%= @company.company_name %>
-</p>
+<div class="page-header">
+  <h2><%= @company.company_name %></h2>
+</div>
 
-<p>
-  <strong>Trading name:</strong>
-  <%= @company.trading_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong>Id:</strong></dt>
+  <dd><%= @company.id %></dd>
+  <dt><strong>Company name:</strong></dt>
+  <dd><%= @company.company_name %></dd>
+  <dt><strong>Trading name:</strong></dt>
+  <dd><%= @company.trading_name %></dd>
+  <dt><strong>Cnpj:</strong></dt>
+  <dd><%= @company.cnpj %></dd>
+</dl>
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @company.cnpj %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<div class="form-actions">
+    <%= link_to 'Back', companies_path, class: 'btn' %>
+    <%= link_to "edit", edit_company_path(@company), class: 'btn' %>
+    <%= link_to "destroy", @company, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+</div>

@@ -1,29 +1,28 @@
 <%= form_for(@company) do |f| %>
-  <% if @company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
-
-      <ul>
-      <% @company.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <fieldset>
+  <legend>Company Data</legend>
+  <%= render 'company_error_messages' %>
+  <div class="control-group">
+    <%= f.label :company_name, :class => 'control-label' %>
+    <div class="controls"> 
+      <%= f.text_field :company_name, :class => 'text_field' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
   </div>
-  <div class="field">
-    <%= f.label :trading_name %><br>
-    <%= f.text_field :trading_name %>
+  <div class="control-group">
+    <%= f.label :trading_name, :class => 'control-label' %>
+    <div class="controls"> 
+      <%= f.text_field :trading_name, :class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :cnpj %><br>
-    <%= f.text_field :cnpj %>
+  <div class="control-group">
+    <%= f.label :cnpj, 'CNPJ', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cnpj, id: 'cnpj', :class => 'text_field' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to "cancel", company_path(@company), :class => 'btn' %>
   </div>
+  </fieldset>
 <% end %>

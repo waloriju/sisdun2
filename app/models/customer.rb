@@ -35,7 +35,7 @@ class Customer < ActiveRecord::Base
                         length: { maximum: 70 }
   validates :gender,  presence: true,
                       inclusion: { in: %w( male female ) }
-  VALID_CPF_REGEX = /\d{3}\.\d{3}\.\d{3}-\d{2}/
+  VALID_CPF_REGEX = /\d{3}\.\d{3}\.\d{3}\-\d{2}/
   validates :cpf, presence: true,
                   uniqueness: true,
                   format: { with: VALID_CPF_REGEX },

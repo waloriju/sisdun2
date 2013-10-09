@@ -22,7 +22,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer }
-          flash[:success] = "Customer #{@customer.full_name} was successfully created."
+        flash[:success] = "Customer #{@customer.full_name} was successfully created."
         format.json { render action: 'show', status: :created,
           location: @customer }
       else
@@ -36,8 +36,8 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to customers_url }
-          flash[:success] = "Customer #{@customer.full_name} was successfully updated."
+        format.html { redirect_to @customer }
+        flash[:success] = "Customer #{@customer.full_name} was successfully updated."
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

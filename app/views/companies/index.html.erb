@@ -1,31 +1,35 @@
-<h1>Listing companies</h1>
+<% provide(:title, 'Companies') %>
 
-<table>
+<div class="page-header">
+  <h1>Companies</h1>
+</div>
+
+
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Company name</th>
       <th>Trading name</th>
-      <th>Cnpj</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>CNPJ</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
     <% @companies.each do |company| %>
       <tr>
+        <td><%= link_to(company.id, company) %></td>        
         <td><%= company.company_name %></td>
         <td><%= company.trading_name %></td>
         <td><%= company.cnpj %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+            <%= link_to "show", company, class: 'btn btn-mini' %>
+            <%= link_to "edit", edit_company_path(company), class: 'btn btn-mini' %>
+            <%= link_to "destroy", company, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-mini btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+<%= link_to "new", new_company_path, class: 'btn btn-primary' %>
