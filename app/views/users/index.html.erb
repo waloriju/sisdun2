@@ -20,7 +20,7 @@
           <td><%= link_to user.id, user_path(user) %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.created_at %></td>
+          <td><%= user.created_at.strftime('%d/%m/%Y')  %></td>
           <td>
             <%= link_to "Mostrar", user, class: 'btn btn-mini' %>
             <% if current_user.admin? && !current_user?(user) %>

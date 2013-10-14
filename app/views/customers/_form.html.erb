@@ -3,19 +3,19 @@
   <legend>Dados pessoais</legend>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="control-group">
-    <%= f.label :first_name, 'Nome', class: 'control-label' %>
+    <%= f.label :first_name, 'Nome*', class: 'control-label' %>
     <div class="controls">
       <%= f.text_field :first_name, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :last_name, 'Sobrenome', class: 'control-label' %>
+    <%= f.label :last_name, 'Sobrenome*', class: 'control-label' %>
     <div class="controls">
       <%= f.text_field :last_name, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group form-inline">
-    <%= f.label :gender, 'Sexo', class: 'control-label' %>
+    <%= f.label :gender, 'Sexo*', class: 'control-label' %>
     <div class="controls">
       <%= f.radio_button :gender, 'male' %>
       <%= f.label :Male, 'Masculino', class: 'control-label'  %>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :birth_date, 'Data de Nascimento', class: 'control-label' %>
+    <%= f.label :birth_date, 'Data de Nascimento*', class: 'control-label' %>
     <div class="controls">
       <%= f.date_select :birth_date,
         {order: [:day, :month, :year], 
@@ -46,39 +46,68 @@
     <legend>Endereço</legend>
     <%= f.fields_for :address do |address| %>
       <div class="control-group">
-        <%= address.label :line1, "Endereço", class: 'control-label' %>
+        <%= address.label :line1, "Endereço*", class: 'control-label' %>
         <div class="controls">
           <%= address.text_field :line1 %>
         </div>
       </div>
       <div class="control-group">
-        <%= address.label :line2, "Complemento", class: 'control-label' %>
+        <%= address.label :line2, "Complemento*", class: 'control-label' %>
         <div class="controls">
           <%= address.text_field :line2 %>
         </div>
       </div>
       <div class="control-group">
-        <%= address.label :number, "Numero", class: 'control-label' %>
+        <%= address.label :number, "Numero*", class: 'control-label' %>
         <div class="controls">
           <%= address.text_field :number %>
         </div>
       </div>
       <div class="control-group">
-        <%= address.label :postal_code, "CEP", class: 'control-label' %>
+        <%= address.label :postal_code, "CEP*", class: 'control-label' %>
         <div class="controls">
           <%= address.text_field :postal_code, id: 'cep', class: 'text_field' %>
         </div>
       </div>
       <div class="control-group">
-        <%= address.label :State, "Estado", class: 'control-label' %>
+        <%= address.label :State, "Estado*", class: 'control-label' %>
         <div class="controls">
           <%= collection_select(:state ,:id, State.all, :id, :name, :include_blank => 'Estados') %>
         </div>
       </div>
       <div class="control-group">
-        <%= address.label :City, "Cidade", class: 'control-label' %>
+        <%= address.label :City, "Cidade*", class: 'control-label' %>
         <div class="controls">
           <%= address.collection_select :city_id, [], :id, :name, :include_blank => 'Selecione um estado' %>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <legend>Contato</legend>
+    <%= f.fields_for :contact do |contact| %>
+      <div class="control-group">
+        <%= contact.label :phone1, "Telefone Principal*", class: 'control-label' %>
+        <div class="controls">
+          <%= contact.text_field :phone1, id: 'phone1', class: 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= contact.label :phone2, "Telefone Celular", class: 'control-label' %>
+        <div class="controls">
+          <%= contact.text_field :phone2, id: 'phone2', class: 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= contact.label :phone3, "Telefone Comercial", class: 'control-label' %>
+        <div class="controls">
+          <%= contact.text_field :phone3, id: 'phone3', class: 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= contact.label :email, "E-mail", class: 'control-label' %>
+        <div class="controls">
+          <%= contact.email_field :email, class: 'text_field' %>
         </div>
       </div>
     <% end %>

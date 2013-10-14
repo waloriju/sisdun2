@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
   def new
     @customer = Customer.new
     @customer.build_address
+    @customer.build_contact
   end
 
   def edit
@@ -74,6 +75,6 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :gender, :cpf, :birth_date, address_attributes:[:line1, :line2, :number, :postal_code, :city_id])
+    params.require(:customer).permit(:first_name, :last_name, :gender, :cpf, :birth_date, address_attributes:[:line1, :line2, :number, :postal_code, :city_id], contact_attributes:[:phone1, :phone2, :phone3, :email])
   end
 end

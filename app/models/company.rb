@@ -30,10 +30,10 @@ end
 
 class Company < ActiveRecord::Base
   has_one :address, :as => :addressable, :dependent => :destroy
-  accepts_nested_attributes_for :address
+  has_one :contact, :as => :contactable, :dependent => :destroy
+  accepts_nested_attributes_for :address, :contact
   validates :company_name, presence: true,
                            uniqueness: true
-  validates :trading_name, presence: true
   VALID_CNPJ_REGEX = /\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/
   validates :cnpj, presence: true,
                    uniqueness: true,

@@ -4,7 +4,10 @@
 
 $ ->
   $("#cnpj").mask "99.999.999/9999-99"
-
+  $("#phone1").mask "(99) 9999-9999?9"
+  $("#phone2").mask "(99) 9999-9999?9"
+  $("#phone3").mask "(99) 9999-9999?9"
+ 
  # $('#state_id').change ->
  #   state_id = $(this).val()
  #   $.get "/companies/find_cities_by_state", { state_id:state_id }

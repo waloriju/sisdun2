@@ -28,8 +28,9 @@ class CpfValidator < ActiveModel::EachValidator
 end
 
 class Customer < ActiveRecord::Base
-  has_one :address, :as => :addressable, :dependent => :destroy
-  accepts_nested_attributes_for :address
+  has_one :address, as: :addressable, dependent: :destroy
+  has_one :contact, as: :contactable, dependent: :destroy
+  accepts_nested_attributes_for :address, :contact
   validates :first_name,  presence: true,
                           length: { maximum: 30 },
                           format: { with: /\A[a-zA-Z]+\z/ }
@@ -43,7 +44,6 @@ class Customer < ActiveRecord::Base
                   format: { with: VALID_CPF_REGEX },
                   exclusion: { in: %w(123.456.789-09 111.111.111-11 222.222.222-22 333.333.333-33 444.444.444-44 555.555.555-55 666.666.666-66 777.777.777-77 888.888.888-88 999.999.999-99 000.000.000-00)},
                   cpf: true
-
   validates :birth_date,  presence: true
   def full_name
     "#{first_name} #{last_name}"

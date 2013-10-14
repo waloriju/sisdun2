@@ -16,6 +16,7 @@ class CompaniesController < ApplicationController
   def new
     @company = Company.new
     @company.build_address
+    @company.build_contact
   end
 
   # GET /companies/1/edit
@@ -83,6 +84,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:company_name, :trading_name, :cnpj, address_attributes:[:line1, :line2, :number, :postal_code, :city_id])
+      params.require(:company).permit(:company_name, :trading_name, :cnpj, address_attributes:[:line1, :line2, :number, :postal_code, :city_id], contact_attributes:[:phone1, :phone2, :phone3, :email])
     end
 end

@@ -37,7 +37,16 @@
   </br>
   <fieldset>
     <legend>Contato:</legend>
+    <dt><strong>Telefone Principal:</strong></dt>
+    <dd><%= @customer.contact.phone1 %></dd>
+    <dt><strong>Telefone Celular:</strong></dt>
+    <dd><%= nil?(@customer.contact.phone2) %></dd>
+    <dt><strong>Telefone Comercial:</strong></dt>
+    <dd><%= nil?(@customer.contact.phone3) %></dd>
+    <dt><strong>E-mail:</strong></dt>
+    <dd><%= nil?(@customer.contact.email) %></dd>
   </fieldset>
+  </br>
 </dl>
 
 <div class="form-actions">

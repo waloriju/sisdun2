@@ -1,8 +1,8 @@
 class Address < ActiveRecord::Base
-  belongs_to :addressable, :polymorphic => true
+  belongs_to :addressable, polymorphic: true
   belongs_to :city
-  has_one :customer, :as => :addressable
-  has_one :company, :as => :addressable
+  has_one :customer, as: :addressable
+  has_one :company,  as: :addressable
   validates :line1, presence: true
   validates :line2, presence: true
   validates :number, presence: true,

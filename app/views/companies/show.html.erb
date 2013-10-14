@@ -12,7 +12,7 @@
     <dt><strong>Razão Social:</strong></dt>
     <dd><%= @company.company_name %></dd>
     <dt><strong>Nome Fantasia:</strong></dt>
-    <dd><%= @company.trading_name %></dd>
+    <dd><%= nil?(@company.trading_name) %></dd>
     <dt><strong>Cnpj:</strong></dt>
     <dd><%= @company.cnpj %></dd>
   </fieldset>
@@ -33,7 +33,16 @@
   </br>
   <fieldset>
     <legend>Contato:</legend>
+    <dt><strong>Telefone Principal:</strong></dt>
+    <dd><%= @company.contact.phone1 %></dd>
+    <dt><strong>Telefone Celular:</strong></dt>
+    <dd><%= nil?(@company.contact.phone2) %></dd>
+    <dt><strong>Telefone Comercial:</strong></dt>
+    <dd><%= nil?(@company.contact.phone3) %></dd>
+    <dt><strong>E-mail:</strong></dt>
+    <dd><%= nil?(@company.contact.email) %></dd>
   </fieldset>
+  </br>
 </dl>
 
 <div class="form-actions">

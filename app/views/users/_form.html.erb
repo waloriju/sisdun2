@@ -3,25 +3,25 @@
   <legend>Dados do Usuário</legend>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="control-group">
-    <%= f.label :name, 'Nome', class: 'control-label' %>
+    <%= f.label :name, 'Nome*', class: 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :email, 'E-mail', class: 'control-label' %>
+    <%= f.label :email, 'E-mail*', class: 'control-label' %>
     <div class="controls">
       <%= f.email_field :email, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :password, 'Senha', class: 'control-label' %>
+    <%= f.label :password, 'Senha*', class: 'control-label' %>
     <div class="controls">
       <%= f.password_field :password, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :password_confirmation, 'Confirmar senha', class: 'control-label' %>
+    <%= f.label :password_confirmation, 'Confirmar senha*', class: 'control-label' %>
     <div class="controls">
       <%= f.password_field :password_confirmation, class: 'text_field' %>
     </div>
