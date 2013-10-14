@@ -15,6 +15,7 @@ gem 'twitter-bootstrap-rails', '2.2.8'
 gem 'maskedinput-rails', '1.3.1.0'
 #gem 'kaminari'
 #gem 'ransack'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'
@@ -54,6 +55,8 @@ gem 'coffee-rails', '4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+#gem 'jquery-ui-rails'
+#gem 'rails3-jquery-autocomplete', git: 'https://github.com/francisd/rails3-jquery-autocomplete'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

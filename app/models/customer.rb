@@ -28,6 +28,8 @@ class CpfValidator < ActiveModel::EachValidator
 end
 
 class Customer < ActiveRecord::Base
+  has_one :address, :as => :addressable, :dependent => :destroy
+  accepts_nested_attributes_for :address
   validates :first_name,  presence: true,
                           length: { maximum: 30 },
                           format: { with: /\A[a-zA-Z]+\z/ }
@@ -44,6 +46,6 @@ class Customer < ActiveRecord::Base
 
   validates :birth_date,  presence: true
   def full_name
-    self.first_name+" "+self.last_name
+    "#{first_name} #{last_name}"
   end
 end

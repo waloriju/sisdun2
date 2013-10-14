@@ -1,6 +1,5 @@
 Sisdun::Application.routes.draw do
   resources :companies
-
   resources :customers
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -10,6 +9,9 @@ Sisdun::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/cities_by_state', to: 'companies#cities_by_state', via: 'get'
+  match '/cities_by_state', to: 'customers#cities_by_state', via: 'get'
+  #
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

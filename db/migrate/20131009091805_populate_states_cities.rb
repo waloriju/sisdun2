@@ -3503,6 +3503,7 @@ class PopulateStatesCities < ActiveRecord::Migration
     e.cities.create(:name => "Manfrinópolis")
     e.cities.create(:name => "Mangueirinha")
     e.cities.create(:name => "Manoel Ribas")
+    e.cities.create(:name => "Marabá")
     e.cities.create(:name => "Marechal Cândido Rondon")
     e.cities.create(:name => "Maria Helena")
     e.cities.create(:name => "Marialva")

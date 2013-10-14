@@ -29,6 +29,8 @@ class CnpjValidator < ActiveModel::EachValidator
 end
 
 class Company < ActiveRecord::Base
+  has_one :address, :as => :addressable, :dependent => :destroy
+  accepts_nested_attributes_for :address
   validates :company_name, presence: true,
                            uniqueness: true
   validates :trading_name, presence: true

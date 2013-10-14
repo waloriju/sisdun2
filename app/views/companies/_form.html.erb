@@ -1,28 +1,69 @@
-<%= form_for(@company) do |f| %>
+<%= form_for @company do |f| %>
   <fieldset>
-  <legend>Company Data</legend>
-  <%= render 'company_error_messages' %>
-  <div class="control-group">
-    <%= f.label :company_name, :class => 'control-label' %>
-    <div class="controls"> 
-      <%= f.text_field :company_name, :class => 'text_field' %>
+    <legend>Dados da Empresa</legend>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="control-group">
+      <%= f.label :company_name, 'Razão Social', class: 'control-label' %>
+      <div class="controls"> 
+        <%= f.text_field :company_name, class: 'text_field' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :trading_name, :class => 'control-label' %>
-    <div class="controls"> 
-      <%= f.text_field :trading_name, :class => 'text_field' %>
+    <div class="control-group">
+      <%= f.label :trading_name, 'Nome Fantasia', class: 'control-label' %>
+      <div class="controls"> 
+        <%= f.text_field :trading_name, class: 'text_field' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :cnpj, 'CNPJ', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :cnpj, id: 'cnpj', :class => 'text_field' %>
+    <div class="control-group">
+      <%= f.label :cnpj, 'CNPJ', class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :cnpj, id: 'cnpj', class: 'text_field' %>
+      </div>
     </div>
-  </div>
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to "cancel", company_path(@company), :class => 'btn' %>
-  </div>
   </fieldset>
+  <fieldset>
+    <legend>Endereço</legend>
+    <%= f.fields_for :address do |address| %>
+      <div class="control-group">
+        <%= address.label :line1, "Endereço", class: 'control-label' %>
+        <div class="controls">
+          <%= address.text_field :line1 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :line2, "Complemento", class: 'control-label' %>
+        <div class="controls">
+          <%= address.text_field :line2 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :number, "Numero", class: 'control-label' %>
+        <div class="controls">
+          <%= address.text_field :number %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :postal_code, "CEP", class: 'control-label' %>
+        <div class="controls">
+          <%= address.text_field :postal_code, id: 'cep', class: 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :State, "Estado", class: 'control-label' %>
+        <div class="controls">
+          <%= collection_select(:state ,:id, State.all, :id, :name, :include_blank => 'Estados') %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :City, "Cidade", class: 'control-label' %>
+        <div class="controls">
+          <%= address.collection_select :city_id, [], :id, :name, :include_blank => 'Selecione um estado' %>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.submit "Enviar", class: 'btn btn-primary' %>
+    <%= link_to "Cancelar", company_path(@company), class: 'btn' %>
+  </div>
 <% end %>

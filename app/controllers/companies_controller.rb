@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :signed_in_user
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-
   # GET /companies
   # GET /companies.json
   def index
@@ -16,6 +15,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @company.build_address
   end
 
   # GET /companies/1/edit
@@ -65,6 +65,16 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def cities_by_state
+    state_id = params[:id].to_i
+    cities = City.where(:state_id => state_id)
+    cty = []
+    cities.each do |city|
+      cty << {:id => city.id, :n => city.name}
+    end
+    render :json => {:cty => cty.compact}.as_json
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
@@ -73,6 +83,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:company_name, :trading_name, :cnpj)
+      params.require(:company).permit(:company_name, :trading_name, :cnpj, address_attributes:[:line1, :line2, :number, :postal_code, :city_id])
     end
 end

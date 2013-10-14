@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009091805) do
+ActiveRecord::Schema.define(version: 20131010074824) do
+
+  create_table "addresses", force: true do |t|
+    t.string   "line1",            null: false
+    t.string   "line2",            null: false
+    t.string   "number",           null: false
+    t.string   "postal_code",      null: false
+    t.integer  "addressable_id",   null: false
+    t.string   "addressable_type", null: false
+    t.integer  "city_id",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -25,7 +39,7 @@ ActiveRecord::Schema.define(version: 20131009091805) do
   create_table "companies", force: true do |t|
     t.string   "company_name", null: false
     t.string   "trading_name", null: false
-    t.string   "cnpj"
+    t.string   "cnpj",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,9 +49,9 @@ ActiveRecord::Schema.define(version: 20131009091805) do
   create_table "customers", force: true do |t|
     t.string   "first_name", null: false
     t.string   "last_name",  null: false
-    t.string   "gender"
-    t.string   "cpf"
-    t.date     "birth_date"
+    t.string   "gender",     null: false
+    t.string   "cpf",        null: false
+    t.date     "birth_date", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,10 +67,11 @@ ActiveRecord::Schema.define(version: 20131009091805) do
   end
 
   add_index "states", ["capital_id"], name: "index_states_on_capital_id"
+  add_index "states", ["name"], name: "index_states_on_name"
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
+    t.string   "name",                            null: false
+    t.string   "email",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"

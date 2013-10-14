@@ -1,17 +1,17 @@
-<% provide(:title, 'Users') %>
+<% provide(:title, 'Usuários') %>
 
 <div class="page-header">
-  <h1>Users</h1>
+  <h1>Usuários</h1>
 </div>
 
 <table class="table table-striped">
     <thead>
         <tr>
           <th><%= link_to "Id", users_path(sort: "id")%></th>
-          <th><%= link_to "User", users_path(sort: "name")%></th>
-          <th><%= link_to "e-mail", users_path(sort: "email")%></th>
-          <th><%= link_to "Created at", users_path(sort: "created_at")%></th>
-          <th>Actions</th>
+          <th><%= link_to "Usuário", users_path(sort: "name")%></th>
+          <th><%= link_to "E-mail", users_path(sort: "email")%></th>
+          <th><%= link_to "Criado em", users_path(sort: "created_at")%></th>
+          <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -22,10 +22,10 @@
           <td><%= user.email %></td>
           <td><%= user.created_at %></td>
           <td>
-            <%= link_to "show", user, class: 'btn btn-mini' %>
+            <%= link_to "Mostrar", user, class: 'btn btn-mini' %>
             <% if current_user.admin? && !current_user?(user) %>
-              <%= link_to "edit", edit_user_path(user), class: 'btn btn-mini' %>
-              <%= link_to "destroy", user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-mini btn-danger" %>
+              <%= link_to "Editar", edit_user_path(user), class: 'btn btn-mini' %>
+              <%= link_to "Deletar", user, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-mini btn-danger" %>
             <% end %>
           </td>
         </tr>
@@ -33,4 +33,4 @@
     </tbody>
 </table>
 
-<%= link_to "new", new_user_path, class: 'btn btn-primary' %>
+<%= link_to "Novo", new_user_path, class: 'btn btn-primary' %>

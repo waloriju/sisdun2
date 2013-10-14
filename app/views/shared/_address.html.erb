@@ -1,0 +1,42 @@
+  <fieldset>
+    <legend>Address</legend>
+    <%= f.fields_for :address do |address| %>
+    <%= render 'shared/error_messages', object: address.object %>
+      <div class="control-group">
+        <%= address.label :line1, "Address" %>
+        <div class="controls">
+          <%= address.text_field :line1 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :line2, "Complement" %>
+        <div class="controls">
+          <%= address.text_field :line2 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :number %>
+        <div class="controls">
+          <%= address.text_field :number %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :postal_code %>
+        <div class="controls">
+          <%= address.text_field :postal_code, :id => 'cep', :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :State %>
+        <div class="controls">
+          <%= collection_select(:state ,:id, State.all, :id, :name, :include_blank => 'Estados') %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= address.label :City %>
+        <div class="controls">
+          <%= address.collection_select :city_id, [], :id, :name, :include_blank => 'Selecione um estado' %>
+        </div>
+      </div>
+    <% end %>
+  </fieldset>

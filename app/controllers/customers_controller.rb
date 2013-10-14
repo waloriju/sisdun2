@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
+    @customer.build_address
   end
 
   def edit
@@ -56,6 +57,16 @@ class CustomersController < ApplicationController
     end
   end
 
+  def cities_by_state
+    state_id = params[:id].to_i
+    cities = City.where(:state_id => state_id)
+    cty = []
+    cities.each do |city|
+      cty << {:id => city.id, :n => city.name}
+    end
+    render :json => {:cty => cty.compact}.as_json
+  end
+
   private
 
   def set_customer
@@ -63,6 +74,6 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :gender, :cpf, :birth_date)
+    params.require(:customer).permit(:first_name, :last_name, :gender, :cpf, :birth_date, address_attributes:[:line1, :line2, :number, :postal_code, :city_id])
   end
 end

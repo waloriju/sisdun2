@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     unless !signed_in?
-      redirect_to root_url, notice: "You are already signed"
+      redirect_to root_url, notice: "Você está logado!"
     end
   end
 
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_back_or user
     else
-      flash.now[:error] = "Invalid email/password combination"
+      flash.now[:error] = "E-mail ou password incorreto"
       render 'new'
     end
   end

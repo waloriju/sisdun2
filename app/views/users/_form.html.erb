@@ -1,34 +1,34 @@
 <%= form_for @user do |f| %>  
   <fieldset>
-  <legend>Enter User Details</legend>
-  <%= render 'user_error_messages' %>
+  <legend>Dados do Usuário</legend>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label :name, 'Nome', class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
+      <%= f.text_field :name, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
+    <%= f.label :email, 'E-mail', class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :email, :class => 'text_field' %>
+      <%= f.email_field :email, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :password, :class => 'control-label' %>
+    <%= f.label :password, 'Senha', class: 'control-label' %>
     <div class="controls">
-      <%= f.password_field :password, :class => 'text_field' %>
+      <%= f.password_field :password, class: 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :password_confirmation, :class => 'control-label' %>
+    <%= f.label :password_confirmation, 'Confirmar senha', class: 'control-label' %>
     <div class="controls">
-      <%= f.password_field :password_confirmation, :class => 'text_field' %>
+      <%= f.password_field :password_confirmation, class: 'text_field' %>
     </div>
   </div>
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to "cancel", user_path(@user), :class => 'btn' %>
+    <%= f.submit "Enviar", class: 'btn btn-primary' %>
+    <%= link_to "Cancelar", user_path(@user), class: 'btn' %>
   </div>
   </fieldset>
 <% end %>

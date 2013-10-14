@@ -1,22 +1,43 @@
 <% provide(:title, @company.company_name) %>
 
 <div class="page-header">
-  <h2><%= @company.company_name %></h2>
+  <h3><%= @company.company_name %></h3>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong>Id:</strong></dt>
-  <dd><%= @company.id %></dd>
-  <dt><strong>Company name:</strong></dt>
-  <dd><%= @company.company_name %></dd>
-  <dt><strong>Trading name:</strong></dt>
-  <dd><%= @company.trading_name %></dd>
-  <dt><strong>Cnpj:</strong></dt>
-  <dd><%= @company.cnpj %></dd>
+  <fieldset>
+    <legend>Dados empresa:</legend>
+    <dt><strong>Id:</strong></dt>
+    <dd><%= @company.id %></dd>
+    <dt><strong>Razão Social:</strong></dt>
+    <dd><%= @company.company_name %></dd>
+    <dt><strong>Nome Fantasia:</strong></dt>
+    <dd><%= @company.trading_name %></dd>
+    <dt><strong>Cnpj:</strong></dt>
+    <dd><%= @company.cnpj %></dd>
+  </fieldset>
+  </br>
+  <fieldset>
+    <legend>Endereço:</legend>
+    <dt><strong>Cidade:</strong></dt>
+    <dd><%= @company.address.city.name+", "+@company.address.city.state.abbreviation %></dd>
+    <dt><strong>Endereço:</strong></dt>
+    <dd><%= @company.address.line1 %></dd>
+    <dt><strong>Complemento:</strong></dt>
+    <dd><%= @company.address.line2 %></dd>
+    <dt><strong>Numero:</strong></dt>
+    <dd><%= @company.address.number %></dd>
+    <dt><strong>CEP:</strong></dt>
+    <dd><%= @company.address.postal_code %></dd>
+  </fieldset>
+  </br>
+  <fieldset>
+    <legend>Contato:</legend>
+  </fieldset>
 </dl>
 
 <div class="form-actions">
-    <%= link_to 'Back', companies_path, class: 'btn' %>
-    <%= link_to "edit", edit_company_path(@company), class: 'btn' %>
-    <%= link_to "destroy", @company, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+    <%= link_to 'Voltar', companies_path, class: 'btn' %>
+    <%= link_to "Editar", edit_company_path(@company), class: 'btn' %>
+    <%= link_to "Deletar", @company, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-danger" %>
 </div>

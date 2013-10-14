@@ -4,10 +4,10 @@ class CreateCustomers < ActiveRecord::Migration
       t.string  :first_name, null: false
       t.string  :last_name,  null:false
 
-      t.string  :gender
-      t.string  :cpf
+      t.string  :gender,     null: false
+      t.string  :cpf,        null: false
 
-      t.date    :birth_date
+      t.date    :birth_date, null: false
 
       t.timestamps
     end

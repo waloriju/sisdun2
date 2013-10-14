@@ -1,24 +1,24 @@
-<% provide(:title, "Sign in") %>
+<% provide(:title, "Entrar") %>
 <%= form_for(:session, url: sessions_path) do |f| %>
 <div class="page-header">
-  <h1>Sign in</h1>
+  <h1>Entrar</h1>
 </div>
    <fieldset>
       <div class="control-group">
-        <%= f.label :email, :class => 'control-label' %>
+        <%= f.label :email, class: 'control-label' %>
         <div class="controls">
-          <%= f.text_field :email, :class => 'text_field' %>
+          <%= f.text_field :email, class: 'text_field' %>
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :password, :class => 'control-label' %>
+        <%= f.label :password, class: 'control-label' %>
         <div class="controls">
-          <%= f.password_field :password, :class => 'text_field' %>
+          <%= f.password_field :password, class: 'text_field' %>
         </div>
       </div>
       <div class="form-actions">
-        <%= f.submit "Sign in", :class => 'btn btn-primary' %>
-        <%= link_to "cancel", root_path, :class => 'btn' %>
+        <%= f.submit "Entrar", class: 'btn btn-primary' %>
+        <%= link_to "Cancelar", root_path, class: 'btn' %>
       </div>
     </fieldset>
 <% end %>

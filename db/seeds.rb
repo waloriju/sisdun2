@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#   users = User.create(name: 'Wanderley Junior', email: 'admin@email.com', password: 'foobar', password_confirmation: 'foobar', admin: true)
+#   users = User.create(name: 'user', email: 'user@email.com', password: 'foobar', password_confirmation: 'foobar', admin: false)
+#   companies = Company.create(company_name: 'Wanderley Lopes Ribeiro Junior 05092919965', trading_name: 'Wanderley Junior', cnpj: '76.247.345/0001-06')
+#   addresses = Address.create(line1: 'Rua Prefeito Carlito S Vilella', line2: 'Casa', number: '15', postal_code: '87430-000', city_id: '3160')

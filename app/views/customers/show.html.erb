@@ -1,28 +1,49 @@
 <% provide(:title, @customer.full_name) %>
 
 <div class="page-header">
-  <h1><%= @customer.full_name %></h1>
+  <h3><%= @customer.full_name %></h3>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong>Id:</strong></dt>
-  <dd><%= @customer.id %></dd>
-  <dt><strong>First name:</strong></dt>
-  <dd><%= @customer.first_name %></dd>
-  <dt><strong>Last name:</strong></dt>
-  <dd><%= @customer.last_name %></dd>
-  <dt><strong>Gender:</strong></dt>
-  <dd><%= @customer.gender %></dd>
-  <dt><strong>CPF:</strong></dt>
-  <dd><%= @customer.cpf %></dd>
-  <dt><strong>Date of Birth:</strong></dt>
-  <dd><%= @customer.birth_date %></dd>
+  <fieldset>
+    <legend>Dados pessoais:</legend>
+    <dt><strong>Id:</strong></dt>
+    <dd><%= @customer.id %></dd>
+    <dt><strong>Nome:</strong></dt>
+    <dd><%= @customer.first_name %></dd>
+    <dt><strong>Sobrenome:</strong></dt>
+    <dd><%= @customer.last_name %></dd>
+    <dt><strong>Sexo:</strong></dt>
+    <dd><%= @customer.gender %></dd>
+    <dt><strong>CPF:</strong></dt>
+    <dd><%= @customer.cpf %></dd>
+    <dt><strong>Data de nascimento:</strong></dt>
+    <dd><%= @customer.birth_date %></dd>
+  </fieldset>
+  </br>
+  <fieldset>
+    <legend>Endereço:</legend>
+    <dt><strong>Cidade:</strong></dt>
+    <dd><%= @customer.address.city.name+", "+@customer.address.city.state.abbreviation %></dd>
+    <dt><strong>Endereço:</strong></dt>
+    <dd><%= @customer.address.line1 %></dd>
+    <dt><strong>Complemento:</strong></dt>
+    <dd><%= @customer.address.line2 %></dd>
+    <dt><strong>Numero:</strong></dt>
+    <dd><%= @customer.address.number %></dd>
+    <dt><strong>CEP:</strong></dt>
+    <dd><%= @customer.address.postal_code %></dd>
+  </fieldset>
+  </br>
+  <fieldset>
+    <legend>Contato:</legend>
+  </fieldset>
 </dl>
 
 <div class="form-actions">
-    <%= link_to 'Back', customers_path, class: 'btn' %>
-    <%= link_to "edit", edit_customer_path(@customer), class: 'btn' %>
-    <%= link_to "destroy", @customer, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+    <%= link_to 'Voltar', customers_path, class: 'btn' %>
+    <%= link_to "Editar", edit_customer_path(@customer), class: 'btn' %>
+    <%= link_to "Deletar", @customer, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-danger" %>
 </div>
 
 <h2> Continua com quadro de compras </h2>

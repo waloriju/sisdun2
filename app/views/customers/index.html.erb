@@ -1,7 +1,7 @@
-<% provide(:title, 'Customers') %>
+<% provide(:title, 'Clientes') %>
 
 <div class="page-header">
-  <h1>Customers</h1>
+  <h1>Clientes</h1>
 </div>
 
 
@@ -9,10 +9,10 @@
     <thead>
         <tr>
           <th>Id</th>
-          <th>Name</th>
-          <th>Gender</th>
-          <th>Date of birth</th>
-          <th>Actions</th>
+          <th>Nome</th>
+          <th>Sexo</th>
+          <th>Data de Nascimento</th>
+          <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -23,13 +23,13 @@
           <td><%= customer.gender %></td>
           <td><%= customer.birth_date %></td>
           <td>
-              <%= link_to "show", customer, class: 'btn btn-mini' %>
-              <%= link_to "edit", edit_customer_path(customer), class: 'btn btn-mini' %>
-              <%= link_to "destroy", customer, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-mini btn-danger" %>
+              <%= link_to "Mostar", customer, class: 'btn btn-mini' %>
+              <%= link_to "Editar", edit_customer_path(customer), class: 'btn btn-mini' %>
+              <%= link_to "destroy", customer, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-mini btn-danger" %>
           </td>
         </tr>
       <% end %>
     </tbody>
 </table>
 
-<%= link_to "new", new_customer_path, class: 'btn btn-primary' %>
+<%= link_to "Novo", new_customer_path, class: 'btn btn-primary' %>

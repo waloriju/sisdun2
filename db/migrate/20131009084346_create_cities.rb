@@ -3,7 +3,6 @@ class CreateCities < ActiveRecord::Migration
     create_table :cities do |t|
       t.string :name
       t.references :state
-
       t.timestamps
     end
     add_index :cities, :state_id
