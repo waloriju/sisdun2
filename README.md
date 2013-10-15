@@ -10,4 +10,8 @@
 
 * Company
 
+* Address
+
+* Contact
+
 *

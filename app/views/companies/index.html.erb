@@ -18,14 +18,14 @@
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= link_to(company.id, company) %></td>        
+        <td><%= link_to(company.id, company) %></td>
         <td><%= company.company_name %></td>
         <td><%= company.trading_name %></td>
         <td><%= company.cnpj %></td>
         <td>
             <%= link_to "Mostrar", company, class: 'btn btn-mini' %>
             <%= link_to "Editar", edit_company_path(company), class: 'btn btn-mini' %>
-            <%= link_to "Deletar", company, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-mini btn-danger" %>
+            <%= link_to "Deletar", company, method: :delete, data: { confirm: "Você tem certeza?"}, class: "btn btn-mini btn-danger" %>
         </td>
       </tr>
     <% end %>

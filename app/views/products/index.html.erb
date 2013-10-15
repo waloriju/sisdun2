@@ -1,0 +1,33 @@
+<% provide(:title, 'Produtos')%>
+<div class="page-header">
+  <h1>Produtos</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Titulo</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to(product.id, product) %></td>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to 'Mostrar', product, class: 'btn btn-mini' %>
+          <%= link_to 'Editar', edit_product_path(product), class: 'btn btn-mini' %>
+          <%= link_to 'Deletar', product, method: :delete, data: { confirm: 'Você tem certeza?' }, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo', new_product_path, class: 'btn btn-primary' %>

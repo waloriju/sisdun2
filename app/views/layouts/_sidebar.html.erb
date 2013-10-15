@@ -5,6 +5,7 @@
       <% if signed_in? %>              
         <li><%= link_to "Clientes", customers_path %></li>
         <li><%= link_to "Empresas", companies_path %></li>
+        <li><%= link_to "Produtos", products_path %></li>
         <% if current_user.admin? %>
           <li class="divider"></li>
           <li class="nav-header">Administração</li>

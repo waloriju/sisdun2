@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014095226) do
+ActiveRecord::Schema.define(version: 20131014235341) do
 
   create_table "addresses", force: true do |t|
     t.string   "line1",            null: false
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 20131014095226) do
   end
 
   add_index "customers", ["cpf"], name: "index_customers_on_cpf", unique: true
+
+  create_table "products", force: true do |t|
+    t.string   "title",                               null: false
+    t.text     "description"
+    t.decimal  "price",       precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "states", force: true do |t|
     t.string   "abbreviation"

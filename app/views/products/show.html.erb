@@ -1,0 +1,24 @@
+<% provide(:title, @product.title) %>
+
+<div class="page-header">
+  <h1>Produto: <small><%= @product.title %></small></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <fieldset>
+    <legend>Dados do Produto</legend>
+    <dt><strong>Titulo:</strong></dt>
+    <dd><%= @product.title %></dd>
+    <dt><strong>Descrição:</strong></dt>
+    <dd><%= nil?(@product.description) %></dd>
+    <dt><strong>Preço:</strong></dt>
+    <dd><%= @product.price %></dd>
+  </fieldset>
+  </br>
+</dl>
+
+<div class="form-actions">
+    <%= link_to 'Voltar', products_path, class: 'btn' %>
+    <%= link_to "Editar", edit_product_path(@product), class: 'btn' %>
+    <%= link_to "Deletar", @product, method: :delete, data: { confirm: "Você tem certeza?" }, class: "btn btn-danger" %>
+</div>
