@@ -15,6 +15,7 @@ gem 'twitter-bootstrap-rails', '2.2.8'
 gem 'maskedinput-rails', '1.3.1.0'
 #gem 'kaminari'
 #gem 'ransack'
+gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 
 group :development, :test do

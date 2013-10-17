@@ -1,0 +1,14 @@
+<h2>Carrinho</h2>
+<table>
+
+<%= render(cart.line_items) %>
+
+<tr class="total_line">
+<td colspan="2"><strong>Total</strong></td>
+<td class="total_cell"><strong><%= number_to_currency(cart.total_price) %></strong></td>
+</tr>
+</table>
+
+</br>
+<%= button_to 'Empty cart', cart, method: :delete,
+data: { confirm: 'Are you sure?' } %>

@@ -15,7 +15,13 @@
     <%= render 'layouts/header' %>
     <div class="container-fluid">
       <div class="row-fluid">
-        <%= render 'layouts/sidebar' %>
+        <div class="span3">
+
+          <% if signed_in? %>
+            <%= render 'layouts/sidebar_cart' %>
+          <% end %>
+          <%= render 'layouts/sidebar' %>
+        </div>
         <div class="span9">
           <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>" data-alert='alert'>
