@@ -1,4 +1,5 @@
 Sisdun::Application.routes.draw do
+  get "store/index"
   resources :categories
   resources :products
   resources :companies

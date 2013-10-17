@@ -1,0 +1,38 @@
+<% provide(:title, 'Usuários') %>
+
+<div class="page-header">
+  <h1>Usuários</h1>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th>Id</th>
+          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Estoque</th>
+          <th>Preço</th>
+          <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% cache ['store', Product.latest] do %>
+        <% @products.each do |product| %>
+          <% cache ['entry', product] do %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= product.title %></td>
+              <td><%= product.category.name %></td>
+              <td><%= product.stock  %></td>
+              <td><%= number_to_currency(product.price) %></td>
+              <td>
+                <%= link_to "Mostrar", product, class: 'btn btn-mini' %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      <% end %>
+    </tbody>
+</table>
+
+<%= link_to "Novo", new_user_path, class: 'btn btn-primary' %>

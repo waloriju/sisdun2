@@ -8,4 +8,8 @@ class Product < ActiveRecord::Base
   validates :category_id, presence: true
   validates :sale_type, inclusion: SALE_TYPES
   validates :stock, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  def self.latest
+    Product.order(:updated_at).last
+  end
 end
