@@ -7,12 +7,18 @@
 <dl class="dl-horizontal">
   <fieldset>
     <legend>Dados do Produto</legend>
-    <dt><strong>Titulo:</strong></dt>
+    <dt><strong>Produto:</strong></dt>
     <dd><%= @product.title %></dd>
     <dt><strong>Descrição:</strong></dt>
     <dd><%= nil?(@product.description) %></dd>
+    <dt><strong>Categoria:</strong></dt>
+    <dd><%= @product.category.name %></dd>
+    <dt><strong>Tipo de Venda:</strong></dt>
+    <dd><%= @product.sale_type %></dd>
+    <dt><strong>Estoque:</strong></dt>
+    <dd><%= @product.stock %></dd>
     <dt><strong>Preço:</strong></dt>
-    <dd><%= @product.price %></dd>
+    <dd><%= sprintf("%0.2f", @product.price) %></dd>
   </fieldset>
   </br>
 </dl>

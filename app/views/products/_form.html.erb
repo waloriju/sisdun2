@@ -1,28 +1,47 @@
-<%= form_for(@product) do |f| %>
+<%= form_for @product do |f| %>
   <fieldset>
-  <legend>Dados do Produto</legend>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="control-group">
-    <%= f.label :title, 'Titulo*', class: 'control-label' %><br>
-    <div class="controls">
-      <%= f.text_field :title, class: 'text_field' %>
+    <legend>Dados do Produtos</legend>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="control-group">
+      <%= f.label :title, "Titulo*", class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, class: 'text_field' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, 'Descrição', class: 'control-label' %><br>
-    <div class="controls">
-      <%= f.text_area :description, class: 'text_area' %>
+    <div class="control-group">
+      <%= f.label :description, "Descrição", class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :description, class: 'text_area' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :price, 'Preço*', class: 'control-label' %><br>
-    <div class="controls">
-      <%= f.text_field :price, class: 'text_field'%>
+    <div class="control-group">
+      <%= f.label :category_id, "Categorias*", class: 'control-label' %>
+      <div class="controls">
+        <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => 'Selecione uma categoria' %>
+      </div>
     </div>
-  </div>
+    <div class="control-group">
+      <%= f.label :sale_type, "Tipo de Venda*", class: 'control-label' %>
+      <div class="controls">
+        <%= f.select :sale_type, Product::SALE_TYPES,
+                  prompt: 'Selecione o tipo de venda' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :stock, "Estoque*", class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :stock, class: 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :price, "Preço*", class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :price, id: 'price', class: 'text_field' %>
+      </div>
+    </div>
   </fieldset>
   <div class="form-actions">
-    <%= f.submit "Enviar", class: 'btn btn-primary' %>
-    <%= link_to "Cancelar", product_path(@product), class: 'btn' %>
+    <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+    <%= link_to 'Cancelar', product_path(@product), class: 'btn' %>
   </div>
 <% end %>

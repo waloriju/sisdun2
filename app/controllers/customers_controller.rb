@@ -24,7 +24,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer }
-        flash[:success] = "Customer #{@customer.full_name} was successfully created."
+        flash[:success] = "Cliente #{@customer.full_name} criado com sucesso."
         format.json { render action: 'show', status: :created,
           location: @customer }
       else
@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer }
-        flash[:success] = "Customer #{@customer.full_name} was successfully updated."
+        flash[:success] = "Cliente #{@customer.full_name} atualizado com sucesso."
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -53,7 +53,7 @@ class CustomersController < ApplicationController
     @customer.destroy
     respond_to do |format|
       format.html { redirect_to customers_url }
-      flash[:success] = "Customer #{@customer.full_name} was successfully destroyed"
+      flash[:success] = "Cliente #{@customer.full_name} removido com sucesso."
       format.json { head :no_content }
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014235341) do
+ActiveRecord::Schema.define(version: 20131017033630) do
 
   create_table "addresses", force: true do |t|
     t.string   "line1",            null: false
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20131014235341) do
   end
 
   add_index "addresses", ["city_id"], name: "index_addresses_on_city_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -72,10 +78,15 @@ ActiveRecord::Schema.define(version: 20131014235341) do
   create_table "products", force: true do |t|
     t.string   "title",                               null: false
     t.text     "description"
+    t.string   "sale_type"
     t.decimal  "price",       precision: 8, scale: 2
+    t.integer  "stock"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
 
   create_table "states", force: true do |t|
     t.string   "abbreviation"
@@ -86,7 +97,6 @@ ActiveRecord::Schema.define(version: 20131014235341) do
   end
 
   add_index "states", ["capital_id"], name: "index_states_on_capital_id"
-  add_index "states", ["name"], name: "index_states_on_name"
 
   create_table "users", force: true do |t|
     t.string   "name",                            null: false

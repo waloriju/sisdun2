@@ -8,7 +8,9 @@
     <tr>
       <th>Id</th>
       <th>Titulo</th>
+      <th>Categoria</th>
       <th>Descrição</th>
+      <th>Estoque</th>
       <th>Preço</th>
       <th>Ações</th>
     </tr>
@@ -18,8 +20,10 @@
       <tr>
         <td><%= link_to(product.id, product) %></td>
         <td><%= product.title %></td>
+        <th><%= product.category.name %></th>
         <td><%= product.description %></td>
-        <td><%= product.price %></td>
+        <td><%= product.stock %></td>
+        <td><%= sprintf("%0.2f", product.price) %></td>
         <td>
           <%= link_to 'Mostrar', product, class: 'btn btn-mini' %>
           <%= link_to 'Editar', edit_product_path(product), class: 'btn btn-mini' %>

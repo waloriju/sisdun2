@@ -18,7 +18,7 @@
     <dt><strong>CPF:</strong></dt>
     <dd><%= @customer.cpf %></dd>
     <dt><strong>Data de nascimento:</strong></dt>
-    <dd><%= @customer.birth_date %></dd>
+    <dd><%= @customer.birth_date.strftime('%d/%m/%Y') %></dd>
   </fieldset>
   </br>
   <fieldset>

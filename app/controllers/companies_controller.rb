@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company } 
-        flash[:success] = "Company #{@company.company_name} was successfully created."
+        flash[:success] = "Empresa #{@company.company_name} criada com sucesso."
         format.json { render action: 'show', status: :created, location: @company }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to @company } 
-        flash[:success] = "Company #{@company.company_name} was successfully updated."
+        flash[:success] = "Empresa #{@company.company_name} criada com sucesso."
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -61,7 +61,7 @@ class CompaniesController < ApplicationController
     @company.destroy
     respond_to do |format|
       format.html { redirect_to companies_url }
-      flash[:success] = "Company #{@company.company_name} was successfully destroyed"
+      flash[:success] = "Empresa #{@company.company_name} removida com sucesso."
       format.json { head :no_content }
     end
   end
