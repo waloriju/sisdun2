@@ -12,7 +12,7 @@
           <th>Categoria</th>
           <th>Estoque</th>
           <th>Preço</th>
-          <th>Ações</th>
+          <th>Carrinho</th>
         </tr>
     </thead>
     <tbody>
@@ -25,9 +25,7 @@
               <td><%= product.category.name %></td>
               <td><%= product.stock  %></td>
               <td><%= number_to_currency(product.price) %></td>
-              <td>
-                <%= link_to "Mostrar", product, class: 'btn btn-mini' %>
-              </td>
+              <td><%= button_to 'Adicionar', line_items_path(product_id: product), class: 'btn ' %></td>
             </tr>
           <% end %>
         <% end %>
