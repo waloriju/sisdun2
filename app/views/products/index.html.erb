@@ -3,6 +3,16 @@
   <h1>Produtos</h1>
 </div>
 
+<div class="control-groups">
+  <%= search_form_for @search do |f| %>
+    <div class="input-append">
+      <%= f.label :title_cont, "Titulo", class: "input-medium search-query" %>
+      <%= f.text_field :title_cont %>
+      <button class="btn"><% f.submit %>Pesquisar</button>
+    </div>
+  <% end %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,7 +20,6 @@
       <th>Titulo</th>
       <th>Categoria</th>
       <th>Descrição</th>
-      <th>Estoque</th>
       <th>Preço</th>
       <th>Ações</th>
     </tr>
@@ -22,7 +31,6 @@
         <td><%= product.title %></td>
         <th><%= product.category.name %></th>
         <td><%= product.description %></td>
-        <td><%= product.stock %></td>
         <td><%= sprintf("%0.2f", product.price) %></td>
         <td>
           <%= link_to 'Mostrar', product, class: 'btn btn-mini' %>

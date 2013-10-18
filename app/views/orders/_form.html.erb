@@ -1,0 +1,22 @@
+<%= form_for(@order) do |f| %>
+<fieldset>
+  <legend>Dados do Pedido</legend>
+  <legend>Não selecione os items caso a vista</legend>
+  <div class="control-group">
+    <%= f.label :company_id, "Empresas*", class: 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :company_id, Company.all, :id, :company_name, :include_blank => 'Selecione uma Empresa' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :customer_id, "Clientes*", class: 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :customer_id, Customer.all, :id, :full_name, :include_blank => 'Selecione um cliente' %>
+    </div>
+  </div>
+</fieldset>
+  <div class="form-actions">
+    <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+    <%= link_to 'Cancelar', store_index_path, class: 'btn' %>
+  </div>
+<% end %>

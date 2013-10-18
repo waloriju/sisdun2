@@ -4,6 +4,16 @@
   <h1>Categorias</h1>
 </div>
 
+<div class="control-groups">
+  <%= search_form_for @search do |f| %>
+    <div class="input-append">
+      <%= f.label :name_cont, "Categorias", class: "input-medium search-query" %>
+      <%= f.text_field :name_cont %>
+      <button class="btn"><% f.submit %>Pesquisar</button>
+    </div>
+  <% end %>
+</div>
+
 
 <table class="table table-striped">
   <thead>

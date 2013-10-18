@@ -13,10 +13,6 @@
     <dd><%= nil?(@product.description) %></dd>
     <dt><strong>Categoria:</strong></dt>
     <dd><%= @product.category.name %></dd>
-    <dt><strong>Tipo de Venda:</strong></dt>
-    <dd><%= @product.sale_type %></dd>
-    <dt><strong>Estoque:</strong></dt>
-    <dd><%= @product.stock %></dd>
     <dt><strong>Preço:</strong></dt>
     <dd><%= sprintf("%0.2f", @product.price) %></dd>
   </fieldset>

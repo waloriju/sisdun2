@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @search = Category.search(params[:q])
+    @categories = @search.result
   end
   
   def show

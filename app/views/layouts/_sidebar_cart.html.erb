@@ -1,5 +1,7 @@
-  <div class="well sidebar-nav">
 
-        <%= render @cart %>
-
-  </div><!--/.well -->
+<div class="well sidebar-nav">
+<%= link_to 'Catalogo de Produtos', store_index_path %>
+<div id="cart">
+      <%= render @cart %>
+</div>
+</div><!--/.well -->

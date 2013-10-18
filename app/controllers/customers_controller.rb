@@ -3,7 +3,8 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = Customer.all
+    @search = Customer.search(params[:q])
+    @customers = @search.result
   end
 
   def show

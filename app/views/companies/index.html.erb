@@ -4,6 +4,16 @@
   <h1>Empresas</h1>
 </div>
 
+<div class="control-groups">
+  <%= search_form_for @search do |f| %>
+    <div class="input-append">
+      <%= f.label :company_name_cont, "Razão Social", class: "input-medium search-query" %>
+      <%= f.text_field :company_name_cont %>
+      <button class="btn"><% f.submit %>Pesquisar</button>
+    </div>
+  <% end %>
+</div>
+
 
 <table class="table table-striped">
   <thead>

@@ -10,5 +10,6 @@
 </table>
 
 </br>
-<%= button_to 'Empty cart', cart, method: :delete,
-data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Limpar Carrinho', cart, method: :delete,
+data: { confirm: 'Voce tem certeza?' } %>
+<%= button_to "Efetuar Pedido", new_order_path, method: :get, class: 'btn btn-primary'%>

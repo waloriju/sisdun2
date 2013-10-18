@@ -9,12 +9,12 @@ gem 'pry-nav'
 
 gem 'bcrypt-ruby', '~> 3.0.1'
 gem 'faker',  '1.1.2'
-#gem 'will_paginate'
+#gem "will_paginate", "~> 3.0.5"
 #gem 'bootstrap-will_paginate'
 gem 'twitter-bootstrap-rails', '2.2.8'
 gem 'maskedinput-rails', '1.3.1.0'
 #gem 'kaminari'
-#gem 'ransack'
+gem 'ransack'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 

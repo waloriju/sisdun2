@@ -21,19 +21,6 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :sale_type, "Tipo de Venda*", class: 'control-label' %>
-      <div class="controls">
-        <%= f.select :sale_type, Product::SALE_TYPES,
-                  prompt: 'Selecione o tipo de venda' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :stock, "Estoque*", class: 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :stock, class: 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
       <%= f.label :price, "Preço*", class: 'control-label' %>
       <div class="controls">
         <%= f.text_field :price, id: 'price', class: 'text_field' %>
